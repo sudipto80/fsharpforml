@@ -1,4 +1,4 @@
-
+ 
 # Linear Regression
 
 ## Experimenting with Math.NET
@@ -9,7 +9,22 @@
 let velocities = vector[23.;4.;5.;2.]
 ```
 ### Creating a matrix
+```fsharp
+let y = matrix [[1.;3.]
+                [1.;5.]
+                [1.;4.]]
+```                
+#### Creating a matrix from a list of rows
+```fsharp
+//Loading values of the csv file and generating a dense matrix
+//Please modify the file path to point it in your local disc
+let rows = File.ReadAllLines("C:\\mpg.csv")
+               |> Array.map (fun t -> t.Split(',')
+               |> Array.map (fun t -> float t);
+let mpgData = DenseMatrix.ofRowArrays rows
+```
 ### Finding transpose of a matrix
+
 ### Finding the inverse of a matrix
 ### Trace of a matrix
 ### QR decomposition of a matrix
